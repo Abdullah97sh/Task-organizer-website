@@ -1,4 +1,3 @@
-// comment 
 // side_tasks-form
 let refId = 0;
 let darkThemeFlag = false
