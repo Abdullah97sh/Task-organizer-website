@@ -25,7 +25,6 @@
 /* Side task */
 .wrapper {
   display: flex;
-  margin-top: 30px;
 }
 
 #sidebar1 {
@@ -37,7 +36,9 @@
   color: #fff;
   transition: all 0.3s;
 }
-
+#sidebar1 ul {
+  margin-top: 40px;
+}
 .components {
   display: flex;
   align-items: flex-start;
@@ -197,7 +198,7 @@
 }
 
 #cards .card .card-header {
-  background-color: white
+  background-color: white;
 }
 
 #cards .card div.input-group .input-group-text {
@@ -656,4 +657,4 @@ input[type="checkbox"]:hover {
 .completeDarkTheme {
   color: white;
   background-color: #212124 !important;
-} 
+}

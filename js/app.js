@@ -86,11 +86,17 @@ function createCard(task, id) {
   let completeTask = document.createElement("span");
   completeTask.className = "input-group-text";
   completeTask.id = "inputGroup-sizing-default";
+  if (darkThemeFlag) {
+    completeTask.classList.add("completeDarkTheme")
+  }
   completeTask.textContent = "Complete";
   checkboxContaner.append(completeTask);
 
   let checkboxDiv = document.createElement("div");
   checkboxDiv.className = "input-group-text me-lg-3 me-md-3 me-sm-3 me-3 p-0";
+  if (darkThemeFlag) {
+    checkboxDiv.classList.add("completeDarkTheme")
+  }
   checkboxDiv.setAttribute(
     "style",
     "border-top-right-radius: 5px; border-bottom-right-radius: 5px;"
@@ -117,13 +123,17 @@ function createCard(task, id) {
 
   if (task.priority == "Normal") {
     spanPriority.style.color = "green";
-    card.style.boxShadow = "3px 3px 20px 5px rgb(0 255 52 / 58%)";
+    card.style.boxShadow = "0px 1px 14px 0px rgb(54 185 80)";
   } else if (task.priority == "Critical") {
     spanPriority.style.color = "red";
-    card.style.boxShadow = "3px 3px 20px 5px rgb(173 13 8 / 79%)";
+    card.style.boxShadow = " 0px 1px 14px 0px rgb(173 13 8 / 79%)";
   } else if (task.priority) {
     spanPriority.style.color = "blue";
-    card.style.boxShadow = "3px 3px 20px 5px rgb(0 53 255 / 61%) ";
+    card.style.boxShadow = "0px 1px 14px 0px rgb(0 53 255 / 61%) ";
+  }
+
+  if (darkThemeFlag) {
+    spanPriority.classList.add("completeDarkTheme")
   }
 
   spanPriority.id = `priority-${id}`;
@@ -680,14 +690,14 @@ function calculateRemainTime(startDate, dateAsString) {
 }
 
 // display user name in aside bar for welcoming
-let welcomeName = document.getElementById("welcomeName");
+// let welcomeName = document.getElementById("welcomeName");
 
-for (let i = 0; i < user.length; i++) {
-  let element = user[i];
-  if (element.isLogged) {
-    welcomeName.textContent = `Welcome ${element.firstName}`;
-  }
-}
+// for (let i = 0; i < user.length; i++) {
+//   let element = user[i];
+//   if (element.isLogged) {
+//     welcomeName.textContent = `Welcome ${element.firstName}`;
+//   }
+// }
 //function to remove filter will use it before filter by state and priority
 function autoRemoveFilter() {
   without.click();
