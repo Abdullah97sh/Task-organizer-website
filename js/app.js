@@ -348,7 +348,7 @@ let priorityNormal = document.getElementById("priorityNormal");
 let priorityLow = document.getElementById("priorityLow");
 
 // get user who logged in 
-function getUser() {
+function getTasks() {
   let taskArray = [];
   // get task and push it in to taskArray
   for (let index = 0; index < user.length; index++) {
@@ -359,6 +359,19 @@ function getUser() {
   }
   return taskArray;
 }
+
+function getUser() {
+  let userLogged = null
+  // get task and push it in to taskArray
+  for (let index = 0; index < user.length; index++) {
+    const element = user[index];
+    if (element.isLogged) {
+      userLogged = element
+    }
+  }
+  return userLogged;
+}
+
 let criticalFilter = false;
 // event handler for priorityCritical
 priorityCritical.onclick = (event) => {
@@ -371,7 +384,7 @@ priorityCritical.onclick = (event) => {
   autoRemoveFilter();
 
   // array for stor task
-  let taskArray = getUser();
+  let taskArray = getTasks();
 
   for (let index = 0; index < taskArray.length; index++) {
     const element = taskArray[index];
@@ -428,7 +441,7 @@ priorityLow.onclick = (event) => {
     return
   }
   autoRemoveFilter();
-  let taskArray = getUser();
+  let taskArray = getTasks();
 
 
   for (let index = 0; index < taskArray.length; index++) {
@@ -474,7 +487,7 @@ completeState.onclick = (event) => {
     return
   }
   autoRemoveFilter();
-  let taskArray = getUser();
+  let taskArray = getTasks();
 
 
   for (let index = 0; index < taskArray.length; index++) {
@@ -505,7 +518,7 @@ incompleteState.onclick = (event) => {
     return
   }
   autoRemoveFilter();
-  let taskArray = getUser();
+  let taskArray = getTasks();
   for (let index = 0; index < taskArray.length; index++) {
     const element = taskArray[index];
     for (let index = 0; index < element.length; index++) {
@@ -745,7 +758,7 @@ function checkFilter() {
 
   if (completedFilter && criticalFilter) {
     autoRemoveFilter();
-    let userArray = getUser()
+    let userArray = getTasks()
     userArray.forEach(tasks => {
       console.log(tasks);
       tasks.forEach(task => {
@@ -761,7 +774,7 @@ function checkFilter() {
 
   if (completedFilter && normalFilter) {
     autoRemoveFilter();
-    let userArray = getUser()
+    let userArray = getTasks()
     userArray.forEach(tasks => {
       console.log(tasks);
       tasks.forEach(task => {
@@ -777,7 +790,7 @@ function checkFilter() {
 
   if (completedFilter && lowFilter) {
     autoRemoveFilter();
-    let userArray = getUser()
+    let userArray = getTasks()
     userArray.forEach(tasks => {
       console.log(tasks);
       tasks.forEach(task => {
@@ -794,7 +807,7 @@ function checkFilter() {
 
   if (incompleteFilter && criticalFilter) {
     autoRemoveFilter();
-    let userArray = getUser()
+    let userArray = getTasks()
     userArray.forEach(tasks => {
       console.log(tasks);
       tasks.forEach(task => {
@@ -810,7 +823,7 @@ function checkFilter() {
 
   if (incompleteFilter && normalFilter) {
     autoRemoveFilter();
-    let userArray = getUser()
+    let userArray = getTasks()
     userArray.forEach(tasks => {
       console.log(tasks);
       tasks.forEach(task => {
@@ -826,7 +839,7 @@ function checkFilter() {
 
   if (incompleteFilter && lowFilter) {
     autoRemoveFilter();
-    let userArray = getUser()
+    let userArray = getTasks()
     userArray.forEach(tasks => {
       console.log(tasks);
       tasks.forEach(task => {
@@ -845,4 +858,13 @@ function checkFilter() {
   normalFilter = false
   lowFilter = false
 }
+let profileBtn = document.getElementById("profileBtn") 
 
+function profile(){
+  let user = getUser()
+  let profileName = document.getElementById("profileName")
+  let emailProfile = document.getElementById("emailProfile")
+  profileName.textContent = "Welcome " + user.firstName
+  emailProfile.textContent = "Email: " +user.email
+  profileBtn.click()
+}

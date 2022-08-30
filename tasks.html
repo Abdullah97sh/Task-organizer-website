@@ -22,74 +22,70 @@
   <title>Tasks</title>
 
 
-<style>@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 
 
-.content {
-  position: relative;
-}
+    .content {
+      position: relative;
+    }
 
-.content h2 {
-  color: rgb(255, 255, 255);
-  padding-left: 15%;
-  font-size: 2em;
-  position: absolute;
-  left:20%;
-  transform: translate(-50%, -50%);
-}
+    .content h2 {
+      color: rgb(255, 255, 255);
+      padding-left: 15%;
+      font-size: 2em;
+      position: absolute;
+      left: 20%;
+      transform: translate(-50%, -50%);
+    }
 
-.content h2:nth-child(1) {
-  color: transparent;
-  -webkit-text-stroke: 3px #497faf;
-}
+    .content h2:nth-child(1) {
+      color: transparent;
+      -webkit-text-stroke: 3px #497faf;
+    }
 
-.content h2:nth-child(2) {
-  color: #3e6689;
-  animation: animate 0.5s ease-in-out infinite;
-}
+    .content h2:nth-child(2) {
+      color: #3e6689;
+      animation: animate 0.5s ease-in-out infinite;
+    }
 
-@keyframes animate {
-  0%,
-  100% {
-    clip-path: polygon(
-      0% 45%,
-      16% 44%,
-      33% 50%,
-      54% 60%,
-      70% 61%,
-      84% 59%,
-      100% 52%,
-      100% 100%,
-      0% 100%
-    );
-  }
+    @keyframes animate {
 
-  50% {
-    clip-path: polygon(
-      0% 60%,
-      15% 65%,
-      34% 66%,
-      51% 62%,
-      67% 50%,
-      84% 45%,
-      100% 46%,
-      100% 100%,
-      0% 100%
-    );
-  }
+      0%,
+      100% {
+        clip-path: polygon(0% 45%,
+            16% 44%,
+            33% 50%,
+            54% 60%,
+            70% 61%,
+            84% 59%,
+            100% 52%,
+            100% 100%,
+            0% 100%);
+      }
+
+      50% {
+        clip-path: polygon(0% 60%,
+            15% 65%,
+            34% 66%,
+            51% 62%,
+            67% 50%,
+            84% 45%,
+            100% 46%,
+            100% 100%,
+            0% 100%);
+      }
 
 
-}
-.fa-circle-xmark:before, .fa-times-circle:before, .fa-xmark-circle:before {
-    content: "\f057";
-    color: red;
-}
+    }
 
-
-
-
-
-</style>
+    .fa-circle-xmark:before,
+    .fa-times-circle:before,
+    .fa-xmark-circle:before {
+      content: "\f057";
+      color: red;
+    }
+  </style>
 
 
 
@@ -98,15 +94,15 @@
 <body class="taskB">
   <header>
     <nav>
-      <nav class="navbar navbar-expand-md bg-light "  id="nav">
+      <nav class="navbar navbar-expand-md bg-light " id="nav">
         <form class="container-fluid justify-content-start">
-          <i class="fa-solid fa-list-check ms-3" style="font-size: 37px;cursor:auto; color: #396387;
-          "></i>
+          <i class="fa-solid fa-list-check ms-3" style="font-size: 37px;cursor:auto; color: #396387;"></i>
           <div style="position:absolute ; right:20px  ; top:10px;">
-            <button class="btn  ms-auto"><span id="navbarIcon1"><img src="Image/moon.png" alt="Color" id="darkTheme"
+            <button class="btn  ms-auto" id="darkTheme"><span id="navbarIcon1"><img src="Image/moon.png" alt="Color"
                   height="20px" width="20px"></span></button>
-            <button class="btn  me-5"> <span id="navbarIcon2"><img src="Image/sun.png" alt="Color"
-                  height="20px" width="20px"></span></button>
+            <button class="btn  me-5"> <span id="navbarIcon2"><img src="Image/sun.png" alt="Color" height="20px"
+                  width="20px"></span></button>
+            <i class="fa-solid fa-user" onclick="profile()"></i>
           </div>
         </form>
 
@@ -117,7 +113,7 @@
   <main>
     <div class="wrapper">
       <!-- Sidebar -->
-      <nav id="sidebar1" >
+      <nav id="sidebar1">
         <!-- <div class="sidebar-header">
            <h3 id="welcomeName">Welcome</h3>
         </div> -->
@@ -168,28 +164,30 @@
           </li>
         </ul>
       </nav>
-      
-<div class="col-1"></div>
+
+      <div class="col-1"></div>
       <!-- Task form  -->
 
       <div class="col-md-1 col-sm-1"></div>
 
-      <div class="taskform col-md-6 col-sm-9 mt-5" >
+      <div class="taskform col-md-6 col-sm-9 mt-5">
         <h3 class="title text-center" style="color: #396387;letter-spacing: 2px;">NEW TASK</h3>
 
         <div class="card" id="card">
           <!-- Title input -->
-          <h6 class="text-center text-danger" id="titleValid" style="margin: 0; padding: 0; font-size: 0.8rem; display: none;">Enter
+          <h6 class="text-center text-danger" id="titleValid"
+            style="margin: 0; padding: 0; font-size: 0.8rem; display: none;">Enter
             Title to Create New Task</h6>
 
           <div class="input-group mb-3">
-           
+
             <input type="text" class="form-control" id="inputTitle" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default" placeholder="Title"/>
+              aria-describedby="inputGroup-sizing-default" placeholder="Title" />
           </div>
 
           <!-- Date input -->
-          <h6 class="text-center text-danger" id="dateValid" style="margin: 0; padding: 0; font-size: 0.8rem; display: none;">Can't
+          <h6 class="text-center text-danger" id="dateValid"
+            style="margin: 0; padding: 0; font-size: 0.8rem; display: none;">Can't
             start date be after end date </h6>
           <div class="input-group input-daterange mb-3">
             <div class="input-group-addon">Date:&nbsp;</div>
@@ -200,8 +198,8 @@
           <!-- Description input -->
 
           <div class="input-group mb-3">
-            <textarea id="inputDescription" class="form-control" placeholder="Description" style="max-height: 20vh ; min-height:200px"
-              aria-label="With textarea"></textarea>
+            <textarea id="inputDescription" class="form-control" placeholder="Description"
+              style="max-height: 20vh ; min-height:200px" aria-label="With textarea"></textarea>
           </div>
 
           <!-- Priority Input -->
@@ -275,7 +273,8 @@
             <!-- responsize and mack introduction page Turkyeh -->
             <div class="modal-body">
               <form>
-                <h5 class="carousel-item__subtitle"><i class="fa fa-spinner fa-spin" style="    color: #497faf;"></i> Welcome in your </h5>
+                <h5 class="carousel-item__subtitle"><i class="fa fa-spinner fa-spin" style="    color: #497faf;"></i>
+                  Welcome in your </h5>
                 <section><br><br>
                   <div class="content carousel-item__title">
                     <h2>MANAGEMENT TASK SYSTEAM</h2>
@@ -301,7 +300,8 @@
             <center>
               <!-- finish this part here  -->
               <div class="modal-footer" style="position:absolute; top:70% ; left: 10%;">
-                <button type="button" class="btn" data-bs-dismiss="modal" style="width: 200px; background-color: #497faf;color: white;">Start
+                <button type="button" class="btn" data-bs-dismiss="modal"
+                  style="width: 200px; background-color: #497faf;color: white;">Start
                   now</button>
               </div>
             </center>
@@ -358,8 +358,7 @@
                     <label class="form-check-label" for="normalR">Normal</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="editLowR"
-                      value="low" />
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="editLowR" value="low" />
                     <label class="form-check-label" for="lowR">Low</label>
                   </div>
                 </div>
@@ -368,6 +367,34 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="saveEditBtn">save</button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" id="profileBtn" style="display: none;" data-bs-toggle="modal"
+        data-bs-target="#profile">
+        Launch demo modal
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <i class="fa-solid fa-user fa-10x" style="width: 100%; height:50px; font-size: 100px; text-align: center;"></i>
+              </div>
+              <h3 id="profileName" style="margin-top: 20px; text-align: center;"> Welcome </h3>
+              <h5 id="emailProfile" style="margin-top: 20px; text-align: center;"> Email</h5>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
